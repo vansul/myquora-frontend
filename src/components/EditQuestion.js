@@ -68,6 +68,7 @@ export default class EditQuestion extends Component {
   render() {
     return (
       <Container>
+        <br />
         <Jumbotron>
           <h1 className="display-4">Edit Question</h1>
         </Jumbotron>
