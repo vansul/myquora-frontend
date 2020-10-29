@@ -3,6 +3,7 @@ import values from '../Updator';
 
 const Logout = ({ updateMe }) => {
   sessionStorage.removeItem('token');
+  sessionStorage.removeItem('email');
   sessionStorage.removeItem('loggedIn');
   sessionStorage.removeItem('isModerator');
   values.update();

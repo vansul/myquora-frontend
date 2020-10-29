@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Card, Container, ListGroup } from 'react-bootstrap';
+import { Button, Card, Container, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -18,6 +18,8 @@ export default class Question extends Component {
       },
       answers: '',
       qId: '',
+      user: sessionStorage.getItem('email'),
+      isModerator: sessionStorage.getItem('isModerator'),
     };
 
     this.refresher = this.refresher.bind(this);
@@ -111,6 +113,12 @@ export default class Question extends Component {
             </blockquote>
             <br />
             <Card.Text>Answers: {this.state.answers.length}</Card.Text>
+            {(this.state.isModerator ||
+              this.state.question.author.email === this.state.user) && (
+              <Button as={Link} to={`/editQuestion/${this.state.question._id}`}>
+                Edit
+              </Button>
+            )}
           </Card.Body>
         </Card>
         <hr />
