@@ -36,6 +36,9 @@ export default class NavBar extends Component {
                 <Nav.Link as={NavLink} to="/addQuestion">
                   Add Question
                 </Nav.Link>
+                <Nav.Link as={NavLink} to="/addModerator">
+                  Add Moderator
+                </Nav.Link>
                 <Nav.Link as={NavLink} to="/logout">
                   Logout
                 </Nav.Link>

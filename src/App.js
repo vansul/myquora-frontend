@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Question from './components/Question';
 import AddQuestion from './components/AddQuestion';
+import AddModerator from './components/AddModerator';
 import EditQuestion from './components/EditQuestion';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
           <Route path="/addQuestion" component={AddQuestion} />
+          <Route path="/addModerator" component={AddModerator} />
           <Route path="/editQuestion/:id" component={EditQuestion} />
           <Route path="/question/:id" component={Question} />
         </Switch>
