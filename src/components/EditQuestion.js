@@ -23,7 +23,9 @@ export default class EditQuestion extends Component {
 
   async componentDidMount() {
     const {
-      data: { title },
+      data: {
+        ques: { title },
+      },
     } = axios.get(`https://api.myquora.ml/question/get/${this.state.id}`);
     this.setState({ q: title });
   }
@@ -55,6 +57,9 @@ export default class EditQuestion extends Component {
         if (res.data.success) {
           this.setState({ msg: 'Edited successfully!' });
         }
+      })
+      .catch((err) => {
+        this.setState({ msg: err.message });
       });
   }
 
