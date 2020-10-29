@@ -70,10 +70,6 @@ export default class Register extends Component {
     });
   }
 
-  shoot() {
-    console.log('shooted!!!');
-  }
-
   render() {
     return (
       <Container>
