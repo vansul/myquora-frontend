@@ -14,12 +14,14 @@ export default class NavBar extends Component {
     values.update = this.forceUpdate.bind(this);
   }
 
-  render() {
+  componentDidUpdate() {
     this.setState({
       loggedIn: sessionStorage.getItem('loggedIn'),
       uname: sessionStorage.getItem('uname'),
     });
+  }
 
+  render() {
     return (
       <Navbar bg="light" expand="lg">
         <Navbar.Brand as={NavLink} to="/">
