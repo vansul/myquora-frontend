@@ -113,13 +113,10 @@ export default class Question extends Component {
             </blockquote>
             <br />
             <Card.Text>Answers: {this.state.answers.length}</Card.Text>
-            {this.state.isModerator === 'true' ||
-            this.state.question.author.email === this.state.user ? (
+            {this.state.isModerator === 'true' && (
               <Button as={Link} to={`/editQuestion/${this.state.question._id}`}>
                 Edit
               </Button>
-            ) : (
-              ''
             )}
           </Card.Body>
         </Card>
