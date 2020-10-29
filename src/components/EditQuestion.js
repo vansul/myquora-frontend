@@ -7,7 +7,9 @@ export default class EditQuestion extends Component {
     super(props);
 
     const {
-      match: { id },
+      match: {
+        params: { id },
+      },
     } = props;
 
     this.state = {
@@ -26,7 +28,7 @@ export default class EditQuestion extends Component {
       data: {
         ques: { title },
       },
-    } = axios.get(`https://api.myquora.ml/question/get/${this.state.id}`);
+    } = await axios.get(`https://api.myquora.ml/question/get/${this.state.id}`);
     this.setState({ q: title });
   }
 
