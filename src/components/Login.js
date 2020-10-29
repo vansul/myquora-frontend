@@ -40,6 +40,7 @@ export default class Login extends Component {
 
       sessionStorage.setItem('token', res.data.token);
       sessionStorage.setItem('email', res.data.email);
+      sessionStorage.setItem('uname', res.data.name);
       sessionStorage.setItem('loggedIn', true);
       sessionStorage.setItem('isModerator', res.data.isModerator);
       values.update();

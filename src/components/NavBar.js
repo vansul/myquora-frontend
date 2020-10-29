@@ -7,6 +7,10 @@ export default class NavBar extends Component {
   constructor() {
     super();
 
+    this.state = {
+      loggedIn: sessionStorage.getItem('loggedIn'),
+      uname: sessionStorage.getItem('uname'),
+    };
     values.update = this.forceUpdate.bind(this);
   }
 
@@ -22,7 +26,7 @@ export default class NavBar extends Component {
             <Nav.Link exact={true} as={NavLink} to="/">
               Dashboard
             </Nav.Link>
-            {sessionStorage.getItem('loggedIn') == null ? (
+            {this.state.loggedIn == null ? (
               <>
                 <Nav.Link as={NavLink} to="/register">
                   Register
@@ -42,6 +46,9 @@ export default class NavBar extends Component {
               </>
             )}
           </Nav>
+          {this.state.loggedIn != null && (
+            <div className="navbar-text">{this.state.uname}</div>
+          )}
         </Navbar.Collapse>
       </Navbar>
     );
