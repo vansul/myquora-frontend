@@ -33,16 +33,16 @@ export default class Login extends Component {
       pwd: this.state.pwd,
     };
 
-    axios.post('https://api.myquora.ml/user/login', user).then((res) => {
+    axios.post('https://api.myquora.ml/user/login', user).then(async (res) => {
       if (res.data.success) {
         this.setState({ msg: 'Logged in successfully...', success: true });
       }
 
-      sessionStorage.setItem('token', res.data.token);
-      sessionStorage.setItem('email', res.data.email);
-      sessionStorage.setItem('uname', res.data.name);
-      sessionStorage.setItem('loggedIn', true);
-      sessionStorage.setItem('isModerator', res.data.isModerator);
+      await sessionStorage.setItem('token', res.data.token);
+      await sessionStorage.setItem('email', res.data.email);
+      await sessionStorage.setItem('uname', res.data.name);
+      await sessionStorage.setItem('loggedIn', true);
+      await sessionStorage.setItem('isModerator', res.data.isModerator);
       values.update();
     });
   }

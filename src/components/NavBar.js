@@ -11,10 +11,15 @@ export default class NavBar extends Component {
       loggedIn: sessionStorage.getItem('loggedIn'),
       uname: sessionStorage.getItem('uname'),
     };
-    values.update = this.forceUpdate.bind(this);
+    values.update = this.forceUpdate;
   }
 
   render() {
+    this.setState({
+      loggedIn: sessionStorage.getItem('loggedIn'),
+      uname: sessionStorage.getItem('uname'),
+    });
+
     return (
       <Navbar bg="light" expand="lg">
         <Navbar.Brand as={NavLink} to="/">
