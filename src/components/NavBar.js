@@ -7,18 +7,7 @@ export default class NavBar extends Component {
   constructor() {
     super();
 
-    this.state = {
-      loggedIn: sessionStorage.getItem('loggedIn'),
-      uname: sessionStorage.getItem('uname'),
-    };
     values.update = this.forceUpdate.bind(this);
-  }
-
-  componentDidUpdate() {
-    this.setState({
-      loggedIn: sessionStorage.getItem('loggedIn'),
-      uname: sessionStorage.getItem('uname'),
-    });
   }
 
   render() {
@@ -33,7 +22,7 @@ export default class NavBar extends Component {
             <Nav.Link exact={true} as={NavLink} to="/">
               Dashboard
             </Nav.Link>
-            {this.state.loggedIn == null ? (
+            {sessionStorage.getItem('loggedIn') == null ? (
               <>
                 <Nav.Link as={NavLink} to="/register">
                   Register
@@ -53,8 +42,8 @@ export default class NavBar extends Component {
               </>
             )}
           </Nav>
-          {this.state.loggedIn != null && (
-            <div className="navbar-text">{this.state.uname}</div>
+          {sessionStorage.getItem('loggedIn') != null && (
+            <div className="navbar-text">{sessionStorage.getItem('uname')}</div>
           )}
         </Navbar.Collapse>
       </Navbar>
