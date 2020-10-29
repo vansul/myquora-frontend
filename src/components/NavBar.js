@@ -11,7 +11,7 @@ export default class NavBar extends Component {
       loggedIn: sessionStorage.getItem('loggedIn'),
       uname: sessionStorage.getItem('uname'),
     };
-    values.update = this.forceUpdate;
+    values.update = this.forceUpdate.bind(this);
   }
 
   render() {
