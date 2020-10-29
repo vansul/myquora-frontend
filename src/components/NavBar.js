@@ -46,7 +46,13 @@ export default class NavBar extends Component {
             )}
           </Nav>
           {sessionStorage.getItem('loggedIn') != null && (
-            <div className="navbar-text">{sessionStorage.getItem('uname')}</div>
+            <div
+              className={`navbar-text${
+                sessionStorage.getItem('isModerator') === 'true' && ' text-info'
+              }`}
+            >
+              {sessionStorage.getItem('uname')}
+            </div>
           )}
         </Navbar.Collapse>
       </Navbar>
