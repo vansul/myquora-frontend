@@ -71,12 +71,12 @@ export default class AddQuestion extends Component {
           <Form.Group>
             <Form.Label>Category</Form.Label>
             <Form.Control as="select" onChange={this.onChangeCat}>
-              <option>Philosophy</option>
-              <option>Maths</option>
-              <option>Commerce</option>
-              <option>Food</option>
-              <option>Science</option>
-              <option>Computer Science</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Maths">Maths</option>
+              <option value="Commerce">Commerce</option>
+              <option value="Food">Food</option>
+              <option value="Science">Science</option>
+              <option value="Computer Science">Computer Science</option>
             </Form.Control>
           </Form.Group>
           <Button type="submit">Add Question</Button>
