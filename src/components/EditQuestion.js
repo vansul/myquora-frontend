@@ -50,7 +50,7 @@ export default class EditQuestion extends Component {
     };
 
     axios
-      .put(
+      .post(
         `https://api.myquora.ml/question/edit/${this.state.id}`,
         question,
         config
