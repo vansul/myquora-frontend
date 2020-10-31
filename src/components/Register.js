@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Form, Container, Jumbotron, Button } from 'react-bootstrap';
 import Country from './Country';
 
@@ -9,6 +10,7 @@ export default class Register extends Component {
 
     this.state = {
       msg: '',
+      success: false,
     };
 
     this.onChangeName = this.onChangeName.bind(this);
@@ -64,7 +66,7 @@ export default class Register extends Component {
 
     axios.post('https://api.myquora.ml/user/register', user).then((res) => {
       console.log(res.data);
-      this.setState({ msg: 'User Successfully Registered!' });
+      this.setState({ msg: 'User Successfully Registered!', success: true });
     });
   }
 
@@ -75,8 +77,6 @@ export default class Register extends Component {
         <Jumbotron>
           <h1 className="display-4">Register</h1>
         </Jumbotron>
-        <br />
-        <h4>{this.state.msg}</h4>
         <br />
         <form onSubmit={this.onSubmit}>
           <Form.Group>
@@ -145,6 +145,7 @@ export default class Register extends Component {
           <br />
           <br />
         </form>
+        {this.state.success && <Redirect to="/login" />}
       </Container>
     );
   }

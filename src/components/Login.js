@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Container, Form, Jumbotron, Button } from 'react-bootstrap';
 import values from '../Updator';
 
@@ -55,10 +55,6 @@ export default class Login extends Component {
           <h1 className="display-4">Login</h1>
         </Jumbotron>
         <br />
-        <h3>{this.state.msg}</h3>
-        {this.state.success && <Link to="/">Go to Dashboard</Link>}
-        <br />
-        <br />
         <Form onSubmit={this.onSubmit}>
           <Form.Group>
             <Form.Label>Email ID</Form.Label>
@@ -78,6 +74,7 @@ export default class Login extends Component {
           </Form.Group>
           <Button type="submit">Login</Button>
         </Form>
+        {this.state.success && <Redirect to="/" />}
       </Container>
     );
   }

@@ -43,7 +43,7 @@ export default class AddQuestion extends Component {
       .post('https://api.myquora.ml/question/add', question, config)
       .then((res) => {
         if (res.data.success) {
-          this.setState({ msg: 'Question Added Successfully!', success: true });
+          this.setState({ id: res.data.ques._id, success: true });
         }
       });
   }
@@ -55,9 +55,6 @@ export default class AddQuestion extends Component {
         <Jumbotron>
           <h1 className="display-4">Add Questions</h1>
         </Jumbotron>
-        <br />
-        <h3>{this.state.msg}</h3>
-        {this.state.success && <Link to="/">Go to Dashboard</Link>}
         <br />
         <Form onSubmit={this.onSubmit}>
           <Form.Group>
@@ -81,6 +78,7 @@ export default class AddQuestion extends Component {
           </Form.Group>
           <Button type="submit">Add Question</Button>
         </Form>
+        {this.state.success && <Link to={`/question/${this.state.id}`} />}
       </Container>
     );
   }
