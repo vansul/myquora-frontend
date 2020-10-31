@@ -88,8 +88,11 @@ export default class Question extends Component {
     this.fetchQuestion();
   }
 
-  refresher() {
+  componentDidUpdate() {
     this.fetchQuestion();
+  }
+
+  refresher() {
     this.forceUpdate();
   }
 
